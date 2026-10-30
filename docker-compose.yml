@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  ar-mcdf:
+    build: .
+    image: ar-mcdf:latest
+    container_name: ar-mcdf
+    ports:
+      - "8050:8050"
+    volumes:
+      # Mount trained models and data so you don't need to rebuild image when retraining
+      - ./models:/app/models
+      - ./data:/app/data
+    environment:
+      - FLASK_ENV=production
+      - ALLOWED_ORIGIN=http://localhost:8050
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8050/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s

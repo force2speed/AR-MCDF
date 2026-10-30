@@ -1,0 +1,29 @@
+{
+  "test_windows": 3292,
+  "clean_inference": {
+    "accuracy": 0.9259,
+    "precision": 0.9629,
+    "recall": 0.9002,
+    "f1": 0.9305,
+    "confusion": {
+      "tp": 1633,
+      "fp": 63,
+      "fn": 181,
+      "tn": 1415
+    }
+  },
+  "adversarial_inference": {
+    "accuracy": 0.9426,
+    "precision": 0.9816,
+    "recall": 0.9129,
+    "f1": 0.946,
+    "confusion": {
+      "tp": 1656,
+      "fp": 31,
+      "fn": 158,
+      "tn": 1447
+    }
+  },
+  "robustness_drop_f1": -0.0155,
+  "model_path": "models\\stgcn_weights.pt"
+}
